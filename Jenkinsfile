@@ -43,8 +43,8 @@ podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
 		  withCredentials([usernamePassword(credentialsId: "${docker_registry_auth}", passwordVariable: 'harborpassword', usernameVariable: 'harborusername')]) {
             sh """
 			  
-			  sed -i 's#\$registry#${registry}#' Dockerfile
-			  sed -i 's#\$jar_name#${jar_name}#' start.sh
+			  sed -i 's#\$REGISTRY#${registry}#' Dockerfile
+			  sed -i 's#\$JAR_NAME#${jar_name}#' start.sh
 			  chmod +x  start.sh
 			  cat Dockerfile
 			  cat start.sh
