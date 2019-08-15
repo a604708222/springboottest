@@ -42,16 +42,10 @@ podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
 		  //withCredentials([usernamePassword(credentialsId: '${docker_registry_auth}', passwordVariable: 'harborpassword', usernameVariable: 'harborusername')]) {
 		  withCredentials([usernamePassword(credentialsId: "${docker_registry_auth}", passwordVariable: 'harborpassword', usernameVariable: 'harborusername')]) {
             sh """
-			  echo '
-                java -jar /usr/local/${jar_name}
-              ' > start.sh
+			  
+			  sed -i 's#\$registry#${registry}#' Dockerfile
+			  sed -i 's#\$jar_name#${jar_name}#' start.sh
 			  chmod +x  start.sh
-              echo '
-                FROM ${registry}/zouqiang/centos_jdk:2.0
-				COPY start.sh /usr/local/
-                COPY target/*.jar /usr/local/
-				CMD "/usr/local/start.sh"
-              ' > Dockerfile
 			  
               docker login -u ${harborusername} -p '${harborpassword}' ${registry}
 			  docker build -t ${image_name} .
