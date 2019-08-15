@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: zouqiangtest
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zouqiangtest
+    spec:
+      imagePullSecrets:
+      - name: $SECRET_NAME 
+      containers:
+      - name: zouqiangtest01
+        image: $IMAGE_NAME 
+        ports:
+        - containerPort: 8092
+          protocol: TCP
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: zouqiangtestservice
+spec:
+  type: NodePort
+  selector: 
+    app: zouqiangtest
+  ports: 
+  - port: 8092
+    targetPort: 8092
+    nodePort: 30010
