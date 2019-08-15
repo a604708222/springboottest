@@ -45,9 +45,7 @@ podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
 			  
 			  sed -i 's#\$REGISTRY#${registry}#' Dockerfile
 			  sed -i 's#\$JAR_NAME#${jar_name}#' start.sh
-			  cat start.sh
 			  chmod +x  start.sh
-			  cat Dockerfile
 			  
               docker login -u ${harborusername} -p '${harborpassword}' ${registry}
 			  docker build -t ${image_name} .
