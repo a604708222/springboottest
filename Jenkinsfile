@@ -27,7 +27,7 @@ podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
   node("jenkins-slave"){
       // 第一步
       stage('拉取代码'){
-		 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '${git_auth}', url: "${git_address}"]]])
+		 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "${git_auth}", url: "${git_address}"]]])
          //checkout([$class: 'GitSCM', branches: [[name: '${Branch}']], userRemoteConfigs: [[credentialsId: "${git_auth}", url: "${git_address}"]]])
       }
       // 第二步
