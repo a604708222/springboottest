@@ -8,9 +8,9 @@ def git_address = "https://github.com/a604708222/springboottest.git"
 def jar_name = "springbootTest-0.0.1-SNAPSHOT.jar"
 // 认证
 def secret_name = "registry-pull-secret"
-def docker_registry_auth = "2f0350e1-d160-4c1c-9b97-7abdd74c4ceb"
-def git_auth = "c4d3bb40-24b3-4c1f-9cd9-b48d47a74923"
-def k8s_auth = "25ede8d6-dc22-4f59-a6a7-c0c219052dd0"
+def docker_registry_auth = "9f05e2b5-1454-4bcd-8d4d-7ccc8dfadde1"
+def git_auth = "e4ca8eed-d6a4-42a8-97af-cabdcf9f55e8"
+def k8s_auth = "1cc0997f-b95c-403c-859c-9483a95aa376"
 
 podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
     containerTemplate(
