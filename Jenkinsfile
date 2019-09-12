@@ -39,7 +39,6 @@ podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
       // 第三步
       stage('构建镜像'){
           //withCredentials([usernamePassword(credentialsId: "${docker_registry_auth}", passwordVariable: 'password', usernameVariable: 'username')]) {
-		  //withCredentials([usernamePassword(credentialsId: '${docker_registry_auth}', passwordVariable: 'harborpassword', usernameVariable: 'harborusername')]) {
 		  withCredentials([usernamePassword(credentialsId: "${docker_registry_auth}", passwordVariable: 'harborpassword', usernameVariable: 'harborusername')]) {
             sh """
 			  
