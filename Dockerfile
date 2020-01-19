@@ -1,4 +1,4 @@
-FROM $REGISTRY/yx20/zouqiang/centos_jdk:2.0
+FROM $REGISTRY/zouqiang/centos_jdk:2.0
 COPY target/*.jar /usr/local/
 WORKDIR /usr/local/
 EXPOSE 8092
