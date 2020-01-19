@@ -59,7 +59,8 @@ public class Demo {
     @Test
     public void test4(){
         String s = LocalDate.parse("2019-12-31", DateTimeFormatter.ISO_DATE).plusDays(1).format(DateTimeFormatter.ISO_DATE);
-
+        LocalDateTime parse = LocalDateTime.parse("2019-12-31 12:12:01", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println(123456);
 
 
     }

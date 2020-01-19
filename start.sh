@@ -1,1 +1,0 @@
-java -jar /usr/local/$JAR_NAME
