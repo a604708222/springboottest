@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,6 +28,7 @@ public class SpringbootDemo {
 
         System.out.println(redisTemplate.opsForValue().get("kk1"));
         System.out.println(redisTemplate.opsForHash().get("hash1","hk1"));
+
 
     }
 

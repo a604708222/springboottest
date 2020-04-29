@@ -19,11 +19,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import project.com.huawei.test.dao.BookDao;
@@ -44,7 +40,6 @@ public class BookController {
      */
     @RequestMapping("/list")
     public ModelAndView list() {
-        System.out.println(66666);
         ModelAndView mav = new ModelAndView();
         List<Book> bookList = bookDao.findAll();
         mav.addObject("bookList", bookList);
@@ -103,9 +98,12 @@ public class BookController {
     /**
      * 删除图书
      */
-    @GetMapping("/testquery")
-    public String testquery() {
-        test10();
+    @ResponseBody
+    @PostMapping("/testquery")
+    public String testquery(String name, Integer age) {
+        System.out.println(name+"============="+age);
+//        test10();
+        System.out.println(name);
         return "redirect:/book/list";
     }
 

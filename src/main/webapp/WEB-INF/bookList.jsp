@@ -6,7 +6,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+    <script type="application/javascript" src="../js/jquery-1.11.3.js"></script>
+    <script type="application/javascript">
+
+        console.info(123456);
+        $(function(){
+            $.ajax({
+                url:"/book/testquery",
+                type:"json",
+                data:{
+                    "name":"zhangsan",
+                    "age":"6",
+                },
+                method:"post",
+                success:function (data) {
+                    console.log(data);
+                },
+            })
+        })  ;
+    </script>
 </head>
+
 <body>
 <a href="/book/bookAdd">添加</a>
 <a href="/book/testquery">测试查询</a>
@@ -27,7 +47,7 @@
                 <a href="/book/delete?id=${book.id}">删除</a>
             </td>
         </tr>
-    	
+
     </c:forEach>
 </table>
 </body>

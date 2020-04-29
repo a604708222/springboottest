@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Demo {
 
@@ -61,6 +63,14 @@ public class Demo {
         String s = LocalDate.parse("2019-12-31", DateTimeFormatter.ISO_DATE).plusDays(1).format(DateTimeFormatter.ISO_DATE);
         LocalDateTime parse = LocalDateTime.parse("2019-12-31 12:12:01", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         System.out.println(123456);
+
+
+    }
+    @Test
+    public void test5(){
+        IntStream.rangeClosed(1,5).forEach(System.out::print);
+        System.out.println("");
+        IntStream.range(1,5).forEach(System.out::print);
 
 
     }
