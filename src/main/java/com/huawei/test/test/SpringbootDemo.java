@@ -2,6 +2,7 @@ package com.huawei.test.test;
 
 
 import com.huawei.test.Controller.BookController;
+import com.huawei.test.dao.BookDao;
 import com.huawei.test.entity.Book;
 import com.huawei.test.test.design.observer.EventTest;
 import com.huawei.test.test.design.observer.Publisher;
@@ -31,6 +32,8 @@ public class SpringbootDemo {
     private Publisher publisher;
     @Autowired
     private BookController bookController;
+    @Autowired
+    private BookDao bookDao;
 
 
     @Autowired
@@ -92,8 +95,12 @@ public class SpringbootDemo {
         bookController.list();
 
     }
-
-
-
+    @Test
+    public void  test6(){
+//        Book book = bookDao.findOne(2);
+//        book.setId(1);
+        Book book1 = new Book().setId(2);
+        bookDao.delete(book1);
+    }
 
 }

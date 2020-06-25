@@ -12,7 +12,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -142,5 +146,26 @@ public class Demo {
             }
         }
         System.out.println();
+    }
+    @Test
+    public void test14() {
+        Character a[] = {'a','火'};
+        Character b = '艘';
+    }
+    @Test
+    public void test15() throws ParseException {
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+        System.out.println(timestamp);
+        System.out.println("Date.toString====="+date.toString());
+        System.out.println(Clock.systemDefaultZone());
+        SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss_SS");
+        date = simple.parse("2001-01-03 04:05:06_77");
+        SimpleDateFormat simple1 = new SimpleDateFormat("HH:mm:ss_SS");
+//        SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss_SS");
+        Date parse = new SimpleDateFormat("yyyy-MM-dd").parse("2001-06-09");
+        String format = simple1.format(date);
+        String format1 = simple1.format(timestamp);
+        LocalDateTime.now();
     }
 }
